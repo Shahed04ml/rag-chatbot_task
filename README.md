@@ -4,13 +4,7 @@ A small **Retrieval-Augmented Generation (RAG)** project built with LangChain co
 
 The app lets a user upload a PDF, splits the text into chunks, converts those chunks into embeddings, stores them in a vector database, retrieves the most relevant chunks for each question, and asks an LLM to answer **only from the retrieved document context**.
 
-> **UI preview:** this is a mockup of the final Streamlit layout. Replace it with a real screenshot after running the app.
 
-![UI preview](screenshots/ui-preview.png)
-
-<!-- After you capture a real answer screenshot, uncomment this line:
-![RAG answer with sources](screenshots/app-answer.png)
--->
 
 ## Features
 
@@ -58,33 +52,16 @@ document-rag-chatbot/
 ├── .gitignore
 ├── .env.example
 ├── sample_nlp_rag.pdf
-├── sample_travel_guide.pdf
-└── screenshots/
-    ├── ui-preview.png
-    └── README.md
+└── sample_travel_guide.pdf
+    
 ```
 
 ## Installation
 
-Python 3.10+ is recommended.
 
-```bash
-python -m venv .venv
-```
 
 Activate the virtual environment.
 
-**Windows PowerShell**
-
-```powershell
-.\.venv\Scripts\Activate.ps1
-```
-
-**macOS / Linux**
-
-```bash
-source .venv/bin/activate
-```
 
 Install the dependencies:
 
@@ -110,32 +87,9 @@ Then:
 
 The API key field is a password field and the app does not write the key to a file.
 
-## Optional: use an environment variable
 
-Instead of entering the key in the interface each time, you can set `GROQ_API_KEY` before starting Streamlit.
 
-**Windows PowerShell**
 
-```powershell
-$env:GROQ_API_KEY="your_key_here"
-streamlit run app.py
-```
-
-**macOS / Linux**
-
-```bash
-export GROQ_API_KEY="your_key_here"
-streamlit run app.py
-```
-
-Never commit a real API key to GitHub.
-
-## Run the terminal version
-
-```powershell
-$env:GROQ_API_KEY="your_key_here"
-python main.py sample_travel_guide.pdf
-```
 
 Example question:
 
@@ -187,4 +141,4 @@ Also test a question whose answer is not present in the document. The chatbot sh
 
 - Page numbers displayed in the interface are human-friendly and start from 1.
 - The vector store is kept in memory for this project, so uploading/processing a new document rebuilds the index.
-- Scanned image-only PDFs may require OCR because `pypdf` extracts embedded text, not text from images.
+
